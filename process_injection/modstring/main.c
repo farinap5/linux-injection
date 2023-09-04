@@ -10,11 +10,15 @@ int main() {
     char *p = "0x55c1e3bfd2a0";
     char *m = "mundo\0";
     int mlen = (int)strlen(m);
+
+    /*
+    The address is equal to word size of the machine, 
+    so it may be 64bits long.
+    */
     unsigned long long address = strtoull(p, NULL, 16);
     
     printf("Remote data pointer: %p\n", (void *)address);
     printf("Local data pointer:  %p\n", (void *)m);
-
 
     if ((ptrace(PTRACE_ATTACH, pid, NULL,NULL)) != 0) {
         printf("Error: Problems Attaching\n");
