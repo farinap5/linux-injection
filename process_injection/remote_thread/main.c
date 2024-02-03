@@ -33,7 +33,8 @@ int main() {
 
     for (int i = 0; i <= memmap_size; i++) {
         unsigned char *p = ptr+i;
-        printf("%p - %x\n", p, *p);
+        //printf("%p - %x\n", p, *p);
+        printf("%x",*p);
     }
     return 0;
 }
